@@ -1,4 +1,11 @@
 #Recipe App
+
+module Noodle
+    def is_noodly?
+        return true
+    end
+end
+
 class Dish #(Meal)
     attr_accessor :name
     attr_reader :time_remaining
@@ -17,7 +24,15 @@ class Dish #(Meal)
 end
 
 class Salad < Dish
-    
+    attr_accessor :is_dressed
+
+    def dress_salad
+        @is_dressed = true
+    end
+end
+
+class NoodleSalad < Salad
+    include Noodle
 end
 
 pad_thai = Dish.new("Pad Thai", 30)
